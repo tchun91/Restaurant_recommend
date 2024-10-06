@@ -1,0 +1,1 @@
+user_input = 'Hello, this is a placeholder for chatbot response'
