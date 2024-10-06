@@ -1,0 +1,37 @@
+# VERSION 1.0
+# AUTHOR: Tyler Chun
+# DESCRIPTION: A scalable Flask application using Gunicorn on Ubuntu 18.04 and NGINX with Docker Compose example.
+# SOURCE: https://github.com/nethacker/ubuntu-flask-gunicorn-nginx-docker-compose
+version: '3.3'
+services:
+  rest_rec_app:
+    container_name: rest_rec_app
+    environment:
+      - ALLOWED_HOSTS=*
+      - APP_ENDPOINT=http://rest_rec_app:5001
+      - rest_rec_app=http://localhost:5001
+#    env_file:
+#      - sf/aws_vars/sf_network.env
+    shm_size: '1000000000'
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    ports:
+      - '5001:5001'
+      - '8888:8888'
+    networks:
+      - sf_network
+
+  rest_rec_nginx:
+      container_name: rest_rec_nginx
+      build: ./nginx
+      links:
+          - rest_rec_app
+      ports:
+          - '80:80'
+      networks:
+        - sf_network
+
+networks:
+  sf_network:
+    driver: bridge
