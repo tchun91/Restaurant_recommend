@@ -3,7 +3,7 @@ from flask_restful import Resource, Api,reqparse, abort
 
 
 
-from chatbot.user_chatbot import llm_m
+from .chatbot.user_chatbot import llm_m
 
 chatbot_bp = Blueprint('chatbot', __name__)
 api = Api(chatbot_bp)

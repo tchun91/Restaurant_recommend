@@ -3,7 +3,7 @@ from flask_restful import Resource, Api,reqparse, abort
 
 
 
-from recommender.menu_recommender import recom_menu
+from .recommender.menu_recommender import recom_menu
 
 recommendation_bp = Blueprint('recommendation', __name__)
 api = Api(recommendation_bp)

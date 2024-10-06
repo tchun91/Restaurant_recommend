@@ -13,8 +13,8 @@ class llm_m:
         #Later do the model inference here
         return self.user_test
     def get_response(self):
-        processed_text = self.preprocess_txt(self.user_test)
-        model_response = self.model_inf(processed_text)
+        processed_text = self.preprocess_txt()
+        model_response = self.model_inf()
         return model_response
 
 

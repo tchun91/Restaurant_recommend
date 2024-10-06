@@ -2,7 +2,7 @@ from flask import Flask, render_template_string, request, make_response, render_
 from flask_restful import Resource, Api, reqparse, abort
 
 
-from personalization.save_restaurant import save_restaurant
+from .personalization.save_restaurant import save_restaurant
 
 personalization_bp = Blueprint('personalization', __name__)
 api = Api(personalization_bp)
@@ -18,11 +18,11 @@ class save_restaurant_user(Resource):
         payload_input = {'userId':args['userId'],'restaurantId':args['restaurantId']}
         personal_restaurant_cl=save_restaurant(payload_input)
 
-        pr_cl = personal_restaurant_cl(args['user_chat_input'])
+
         #Save log
-        pr_cl.save_logging()
+        personal_restaurant_cl.save_logging()
         #Save to service db
-        pr_cl.save_restaurant()
+        personal_restaurant_cl.save_restaurant()
         return None
 
 

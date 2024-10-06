@@ -2,13 +2,13 @@ from flask import Blueprint, jsonify, request
 from datetime import datetime
 from math import ceil
 
-api = Blueprint('api', __name__)
+api_bp = Blueprint('api', __name__)
 
 from . import dummy_restaurants
 
 ################ 1. Main Page ################
 # 1-1. Trending Restaurants
-@api.route('/api/trending_restaurants', methods = ['GET'])
+@api_bp.route('/api/trending_restaurants', methods = ['GET'])
 def trending_restaurants():
     zipcode = request.args.get('zipcode')
     
@@ -24,7 +24,7 @@ def trending_restaurants():
     return jsonify(output)
 
 # 1-2. Trending Category
-@api.route('/api/trending_category', methods=['GET'])
+@api_bp.route('/api/trending_category', methods=['GET'])
 def trending_category():
     zipcode = request.args.get('zipcode')
     
@@ -48,7 +48,7 @@ def trending_category():
 
 ################ 3. Search Bar ################
 # 3-1. Search Bar
-@api.route('/api/search', methods=['GET'])
+@api_bp.route('/api/search', methods=['GET'])
 def search():
     user_id = request.args.get('userId')  # User Id input
     query = request.args.get('query') # Search input
@@ -79,7 +79,7 @@ def search():
     return jsonify(output)
 
 # 3-2. You may also like
-@api.route('/api/recommendations/content-based/<userId>', methods=['GET'])
+@api_bp.route('/api/recommendations/content-based/<userId>', methods=['GET'])
 def content_based_recommendations(userId):
     # Add logic to fetch recommended restaurants here
     # Calculate similarity scores 
@@ -106,7 +106,7 @@ def content_based_recommendations(userId):
     return jsonify(output)
 
 # 3-3. Others also liked
-@api.route('/api/recommendations/collaborative/<userId>', methods=['GET'])
+@api_bp.route('/api/recommendations/collaborative/<userId>', methods=['GET'])
 def collaborative_recommendations(userId):
     # Add logic to fetch recommended restaurants here
     # Calculate similarity scores 
@@ -134,7 +134,7 @@ def collaborative_recommendations(userId):
 
 ################ 4. Pagination ################
 # 4-1. Pagination API
-@api.route('/api/search_results', methods=['GET'])
+@api_bp.route('/api/search_results', methods=['GET'])
 def search_results():
     # Get pagination parameters from the request
     page = int(request.args.get('page', 1))
@@ -176,7 +176,7 @@ def search_results():
 
 ################ 5. Restaurant Detail Page ################
 # 5-3. General Info
-@api.route('/api/restaurants/<string:restaurant_id>', methods=['GET'])
+@api_bp.route('/api/restaurants/<string:restaurant_id>', methods=['GET'])
 def get_restaurant_info(restaurant_id):
 
     # Validation of restaurant_id
