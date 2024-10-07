@@ -39,6 +39,8 @@ class content_recom(Resource):
         content_based_recom = content_based_recommendations(payload_input)
 
         return jsonify(content_based_recom.recommend())
+    
+api.add_resource(content_recom, '/api/recommendations/content_based')
 
 # 3-3. Others also like 
 collaborative_based_bp = Blueprint('collaborative_based', __name__)
@@ -54,3 +56,5 @@ class collaborative_recom(Resource):
         collaborative_based_recom = collaborative_recommendations(payload_input)
 
         return jsonify(collaborative_based_recom.recommend())
+    
+api.add_resource(collaborative_recom, '/api/recommendations/collaborative')

@@ -8,6 +8,7 @@ api = Api(trending_bp)
 parser = reqparse.RequestParser()
 parser.add_argment('zipcode', type=str, required=True, help='zipcode is required')
 
+# 1-1 Trending Restaurants
 class trending_restaurants(Resource):
     def get(self):
         args = parser.parse_args()

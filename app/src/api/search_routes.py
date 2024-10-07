@@ -14,6 +14,7 @@ parser.add_argument('filters', type=dict, required=False, help='Filters for the 
 parser.add_argument('filters[price-tier]', type=str, required=False, help='Price tier is optional')
 parser.add_argument('filters[category]', type=str, required=False, help='Category is optional')
 
+# 3-1 Search Bar
 class search(Resource):
     def get(self):
         args = parser.parse_args()

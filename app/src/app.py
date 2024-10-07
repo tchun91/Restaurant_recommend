@@ -11,17 +11,22 @@ from api.search_routes import search_bar_bp
 app = Flask(__name__)
 CORS(app) #To enbale for all domains on all routes
 # Register the blueprint
+
+# 1-1
+app.register_blueprint(trending_bp)
+
+# 3-1
+app.register_blueprint(search_bar_bp)
+# 3-2
+app.register_blueprint(content_based_bp)
+# 3-3
+app.register_blueprint(collaborative_based_bp)
+
+
 app.register_blueprint(api_bp)
 app.register_blueprint(recommendation_bp)
 app.register_blueprint(chatbot_bp)
 app.register_blueprint(personalization_bp)
-app.register_blueprint(trending_bp)
-app.register_blueprint(collaborative_based_bp)
-app.register_blueprint(content_based_bp)
-app.register_blueprint(search_bar_bp)
-
-
-
 
 @app.route('/')
 def home():
