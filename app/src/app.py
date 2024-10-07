@@ -15,6 +15,9 @@ CORS(app) #To enbale for all domains on all routes
 # 1-1
 app.register_blueprint(trending_bp)
 
+# 1-2
+app.register_blueprint(trending_category_bp)
+
 # 3-1
 app.register_blueprint(search_bar_bp)
 # 3-2
@@ -22,6 +25,10 @@ app.register_blueprint(content_based_bp)
 # 3-3
 app.register_blueprint(collaborative_based_bp)
 
+# 4-1
+app.register_blueprint(pagination_bp)
+# 5-3
+app.register_blueprint(restaurant_info_bp)
 
 app.register_blueprint(api_bp)
 app.register_blueprint(recommendation_bp)
@@ -34,4 +41,3 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
