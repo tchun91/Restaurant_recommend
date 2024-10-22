@@ -1,0 +1,11 @@
+Grubhub
+https://www.kaggle.com/datasets/polartech/grubhub-restaurant-data/data
+
+Uber-Eats
+https://www.kaggle.com/datasets/ahmedshahriarsakib/uber-eats-usa-restaurants-menus?select=restaurants.csv
+
+Doordash
+https://www.kaggle.com/datasets/polartech/doordash-restaurant-data/data
+
+Yelp
+https://www.yelp.com/dataset
