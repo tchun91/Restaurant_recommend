@@ -27,6 +27,10 @@ app.register_blueprint(collaborative_based_bp)
 
 # 4-1
 app.register_blueprint(pagination_bp)
+
+# 5-1
+app.register_blueprint(reviews_bp)
+
 # 5-3
 app.register_blueprint(restaurant_info_bp)
 
@@ -34,6 +38,13 @@ app.register_blueprint(api_bp)
 app.register_blueprint(recommendation_bp)
 app.register_blueprint(chatbot_bp)
 app.register_blueprint(personalization_bp)
+
+# 6-2 
+app.register_blueprint(saved_restaurants_bp)
+#6-4
+app.register_blueprint(personalized_recommendations_bp)
+#6-5
+app.register_blueprint(delete_saved_restaurant_bp)
 
 @app.route('/')
 def home():
